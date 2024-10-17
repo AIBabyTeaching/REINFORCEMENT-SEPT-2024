@@ -1,11 +1,12 @@
 Steps:
 - Download python 2.7 32: https://www.python.org/downloads/release/python-2718/
 - Install it make sure to have Pip in it.
-- "path_to\python2.7\python.exe" -m pip install virtualenv
+- cd "path_to\python2.7" # A:\Program Files (x86)\python2.7
+- .\python.exe -m pip install virtualenv # Install virtualenv - Done
 - now to start new project, go to the project folder  "NAO"
 - In command prompt type: set PYTHONIOENCODING=utf-8
-- Then in same command prompt type: "path_to\python2.7\Scripts\virtualenv" venv
-- Now activate the environment from powershell .\venv\Scripts\activate
+- Then in same command prompt type: .\Scripts\virtualenv.exe venv # Create new venv called venv
+- Now activate the environment from powershell .\venv\Scripts\activate # Activated
 - Download the package of Naoqi: http://doc.aldebaran.com/2-5/dev/python/install_guide.html
 - In the activate.bat add this line: REM Add the NAOqi SDK to PYTHONPATH
 set PYTHONPATH=path_to\pynaoqi-python2.7-2.5.5.5-win32-vs2013\lib;%PYTHONPATH%
