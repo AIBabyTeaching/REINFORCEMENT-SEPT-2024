@@ -1,0 +1,28 @@
+Nao_App/
+├── app/
+│   ├── api/
+│   │   ├── v1/
+│   │   │   ├── endpoints/
+│   │   │   │   ├── ml_models.py       # FastAPI endpoints for ML models
+│   │   │   │   ├── nao_controller.py  # FastAPI endpoints for NAO scripts
+│   │   │   │   └── health_check.py    # Endpoint to verify service health
+│   │   │   ├── __init__.py
+│   │   │   └── router.py
+│   ├── core/
+│   │   ├── config.py                  # Application configuration
+│   │   ├── security.py                # Placeholder for authentication (if needed)
+│   │   └── __init__.py
+│   ├── services/
+│   │   ├── ml_service.py              # Logic for ML processing
+│   │   ├── nao_service.py             # Logic to call Python 2.7 scripts
+│   │   └── __init__.py
+│   ├── utils/
+│   │   ├── nao_utils.py               # Helper functions for NAO
+│   │   └── __init__.py
+│   ├── main.py                        # FastAPI application entry point
+│   └── __init__.py
+├── scripts/
+│   ├── nao_interface.py               # Python 2.7 script for NAO
+├── .env                               # Environment variables
+├── requirements.txt                   # Dependencies for Python 3.11
+└── README.md                          # Project documentation

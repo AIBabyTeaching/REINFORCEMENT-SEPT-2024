@@ -1,0 +1,50 @@
+# close_hand.py
+#! /usr/bin/env python
+# -*- encoding: UTF-8 -*-
+
+"""Example: Use closeHand Method"""
+# New Imports
+import naoqi
+from naoqi import ALProxy
+import paramiko 
+
+# Previous imports
+import qi
+import argparse
+import sys
+
+
+def main(session):
+    """
+    This example uses the closeHand method.
+    """
+    # Get the service ALMotion.
+    motion_service = ALProxy("ALMotion","1.1.1.21",9559)
+    
+    #motion_service  = session.service("ALMotion")
+    print('Motion service assigned')
+
+    # Example showing how to close the right hand.
+    handName  = 'RHand'
+    motion_service.closeHand(handName)
+    print("Function Executed")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ip", type=str, default="1.1.1.21", #127.0.0.1 
+                        help="Robot IP address. On robot or Local Naoqi: use '1.1.1.21'.") #127.0.0.1 
+    parser.add_argument("--port", type=int, default=9559,
+                        help="Naoqi port number")
+
+    args = parser.parse_args()
+    session = qi.Session()
+    print("Session open")
+    try:
+        session.connect("tcp://" + args.ip + ":" + str(args.port))
+        print("Session connected successfully")
+    except RuntimeError:
+        print ("Can't connect to Naoqi at ip \"" + args.ip + "\" on port " + str(args.port) +".\n"
+               "Please check your script arguments. Run with -h option for help.")
+        sys.exit(1)
+    main(session)
